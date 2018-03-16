@@ -15,6 +15,8 @@ const int M2_SPEED_PIN = 10;
 // Расстояние от припятствия, на котором робот будет останавливаться
 const int STOP_DISTANCE = 15;
 
+const int SPEED = 50;
+
 // Создание объекта ИК-сенсора GP2Y0A21YK0F подключенныого к порту A0
 SharpIR sensor(GP2Y0A21YK0F, A0);
 
@@ -39,8 +41,8 @@ void setup()
   digitalWrite(M2_DIR_PIN, HIGH);
 
   // Начало движения
-  analogWrite(M1_SPEED_PIN, 50);
-  analogWrite(M2_SPEED_PIN, 50);
+  analogWrite(M1_SPEED_PIN, SPEED);
+  analogWrite(M2_SPEED_PIN, SPEED);
   
   // DEBUG
   Serial.begin(9600);
@@ -65,8 +67,8 @@ void loop()
     // Переключение направления вращения одного из колёс — робот будет вращаться на месте
     digitalWrite(M2_DIR_PIN, LOW);
     // Начало вращения
-    analogWrite(M1_SPEED_PIN, 50);
-    analogWrite(M2_SPEED_PIN, 50);
+    analogWrite(M1_SPEED_PIN, SPEED);
+    analogWrite(M2_SPEED_PIN, SPEED);
     delay(850); // Робот будет вращаться минимум 850мс
     // Вращение колёс в разные стороны по скоростью 50 в течении 850 миллисекнуд это поворот приблизительно на 90°
     
@@ -82,7 +84,7 @@ void loop()
     // Переключение направления вращения мотора в исходное состояние
     digitalWrite(M2_DIR_PIN, HIGH);
     // Начало движения
-    analogWrite(M1_SPEED_PIN, 50);
-    analogWrite(M2_SPEED_PIN, 50);    
+    analogWrite(M1_SPEED_PIN, SPEED);
+    analogWrite(M2_SPEED_PIN, SPEED);    
   }  
 }
